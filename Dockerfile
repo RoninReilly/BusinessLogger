@@ -16,6 +16,9 @@ COPY .env .env
 RUN poetry install --no-interaction --no-ansi \
   && pip install loguru
 
+# Verify installation
+RUN pip list
+
 EXPOSE 80
 
 CMD ["python3", "main.py"]
