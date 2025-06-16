@@ -13,7 +13,8 @@ COPY . .
 COPY .env .env
 
 # Ensure all dependencies are installed
-RUN poetry install --no-interaction --no-ansi
+RUN poetry install --no-interaction --no-ansi \
+  && pip install loguru
 
 EXPOSE 80
 
