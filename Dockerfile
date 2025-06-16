@@ -4,7 +4,7 @@ RUN pip install poetry
 
 WORKDIR /app
 
-COPY pyproject.toml poetry.lock ./
+COPY pyproject.toml poetry.lock README.md ./
 
 RUN poetry config virtualenvs.create false \
   && poetry install --no-interaction --no-ansi
@@ -18,6 +18,9 @@ RUN poetry install --no-interaction --no-ansi \
 
 # Verify installation
 RUN pip list
+
+# Ensure loguru is installed
+RUN pip install loguru
 
 EXPOSE 80
 
