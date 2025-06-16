@@ -12,6 +12,9 @@ RUN poetry config virtualenvs.create false \
 COPY . .
 COPY .env .env
 
+# Ensure all dependencies are installed
+RUN poetry install --no-interaction --no-ansi
+
 EXPOSE 80
 
 CMD ["python3", "main.py"]
